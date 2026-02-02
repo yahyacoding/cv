@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Johnson Smith - UX/UI Designer</title>
+    <title>CV Cahaya Dewi</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
@@ -18,199 +18,70 @@
             color: #333;
             line-height: 1.6;
             padding: 20px;
-            min-height: 100vh;
-            background: linear-gradient(135deg, #e6f2ff 0%, #f0f8ff 100%);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            overflow-x: hidden;
-        }
-        
-        /* Animation for container entry */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px) scale(0.95);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0) scale(1);
-            }
-        }
-        
-        @keyframes slideInLeft {
-            from {
-                opacity: 0;
-                transform: translateX(-30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-        
-        @keyframes slideInRight {
-            from {
-                opacity: 0;
-                transform: translateX(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
+            animation: fadeIn 1s ease;
         }
         
         @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
         
-        @keyframes pulse {
-            0% {
-                box-shadow: 0 0 0 0 rgba(52, 152, 219, 0.4);
-            }
-            70% {
-                box-shadow: 0 0 0 10px rgba(52, 152, 219, 0);
-            }
-            100% {
-                box-shadow: 0 0 0 0 rgba(52, 152, 219, 0);
-            }
-        }
-        
-        .container {
+        .cv-container {
             max-width: 1000px;
-            width: 100%;
             margin: 0 auto;
             background-color: white;
-            box-shadow: 0 10px 30px rgba(41, 128, 185, 0.15);
-            border-radius: 12px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 100, 200, 0.15);
             overflow: hidden;
-            animation: fadeInUp 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
-            opacity: 0;
+            border: 1px solid #e1f0ff;
+            animation: slideUp 0.8s ease-out;
             position: relative;
-            border: 1px solid #e1f0fa;
         }
         
-        /* Animated background elements */
-        .bg-decoration {
-            position: absolute;
-            border-radius: 50%;
-            z-index: -1;
-            opacity: 0.1;
+        @keyframes slideUp {
+            from { transform: translateY(30px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
         }
         
-        .bg-1 {
-            width: 300px;
-            height: 300px;
-            background: linear-gradient(45deg, #3498db, #2980b9);
-            top: -150px;
-            right: -150px;
-        }
-        
-        .bg-2 {
-            width: 200px;
-            height: 200px;
-            background: linear-gradient(45deg, #2980b9, #1c6ea4);
-            bottom: -100px;
-            left: -100px;
-        }
-        
-        header {
-            background: linear-gradient(135deg, #1c6ea4 0%, #3498db 100%);
+        .header {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
             color: white;
-            padding: 30px;
+            padding: 40px 40px 30px;
             position: relative;
-            overflow: hidden;
-        }
-        
-        header:before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, #2ecc71, #3498db, #9b59b6);
         }
         
         .profile-section {
             display: flex;
             align-items: center;
             gap: 30px;
-            animation: slideInLeft 0.8s 0.3s ease-out forwards;
-            opacity: 0;
+            flex-wrap: wrap;
         }
         
         .profile-photo {
             width: 180px;
             height: 180px;
             border-radius: 50%;
-            overflow: hidden;
-            border: 5px solid rgba(255, 255, 255, 0.8);
-            background-color: rgba(255, 255, 255, 0.1);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            animation: pulse 2s infinite;
-        }
-        
-        .profile-photo:hover {
-            transform: scale(1.08) rotate(5deg);
-            border-color: white;
-            animation: none;
-        }
-        
-        .profile-photo img {
-            width: 100%;
-            height: 100%;
             object-fit: cover;
+            border: 5px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            animation: photoAppear 1s 0.3s ease-out both;
         }
         
-        .photo-placeholder {
-            text-align: center;
-            color: rgba(255, 255, 255, 0.8);
-        }
-        
-        .photo-placeholder i {
-            font-size: 60px;
-            margin-bottom: 10px;
-        }
-        
-        .profile-info {
-            flex: 1;
-            animation: slideInRight 0.8s 0.5s ease-out forwards;
-            opacity: 0;
+        @keyframes photoAppear {
+            0% { transform: scale(0); opacity: 0; }
+            100% { transform: scale(1); opacity: 1; }
         }
         
         .profile-info h1 {
             font-size: 2.5rem;
-            margin-bottom: 5px;
-            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            margin-bottom: 10px;
+            letter-spacing: 1px;
         }
         
-        .profile-info h2 {
-            font-size: 1.5rem;
-            color: rgba(255, 255, 255, 0.9);
-            margin-bottom: 20px;
-            font-weight: 500;
-        }
-        
-        .contact-info {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 10px;
-            margin-top: 15px;
-        }
-        
-        .contact-info p {
-            margin-bottom: 8px;
-            font-size: 0.95rem;
+        .profile-info p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            max-width: 600px;
         }
         
         .social-links {
@@ -223,544 +94,476 @@
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            width: 42px;
-            height: 42px;
+            width: 40px;
+            height: 40px;
             background-color: rgba(255, 255, 255, 0.2);
-            color: white;
             border-radius: 50%;
+            color: white;
             text-decoration: none;
+            font-size: 1.2rem;
             transition: all 0.3s ease;
-            border: 1px solid rgba(255, 255, 255, 0.3);
         }
         
         .social-links a:hover {
             background-color: white;
-            color: #3498db;
-            transform: translateY(-5px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            color: #2a5298;
+            transform: translateY(-3px);
         }
         
-        main {
-            padding: 30px;
+        .content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            padding: 40px;
         }
         
-        section {
-            margin-bottom: 40px;
-            opacity: 0;
-            animation: fadeIn 0.8s ease-out forwards;
+        .left-column, .right-column {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
         }
         
-        section:nth-child(1) { animation-delay: 0.7s; }
-        section:nth-child(2) { animation-delay: 0.8s; }
-        section:nth-child(3) { animation-delay: 0.9s; }
-        section:nth-child(4) { animation-delay: 1.0s; }
-        section:nth-child(5) { animation-delay: 1.1s; }
-        
-        h3 {
-            font-size: 1.8rem;
-            color: #1c6ea4;
-            border-bottom: 3px solid #3498db;
-            padding-bottom: 10px;
-            margin-bottom: 20px;
-            position: relative;
-            display: inline-block;
-        }
-        
-        h3:after {
-            content: "";
-            position: absolute;
-            bottom: -3px;
-            left: 0;
-            width: 50px;
-            height: 3px;
-            background-color: #2ecc71;
-        }
-        
-        .about-me p {
-            margin-bottom: 15px;
-            text-align: justify;
-            color: #555;
-        }
-        
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-bottom: 30px;
+        .section {
+            background-color: #f9fbff;
+            border-radius: 10px;
+            padding: 25px;
+            border-left: 5px solid #2a5298;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            border-radius: 8px;
-            overflow: hidden;
             transition: transform 0.3s ease;
         }
         
-        table:hover {
+        .section:hover {
             transform: translateY(-5px);
         }
         
-        th {
-            background: linear-gradient(to right, #3498db, #2980b9);
-            text-align: left;
-            padding: 15px;
+        .section h2 {
+            color: #1e3c72;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #e1f0ff;
+        }
+        
+        .job-item {
+            margin-bottom: 25px;
+        }
+        
+        .job-item:last-child {
+            margin-bottom: 0;
+        }
+        
+        .job-date {
+            color: #2a5298;
             font-weight: 600;
-            color: white;
+            font-size: 1rem;
+            margin-bottom: 5px;
         }
         
-        td {
-            padding: 15px;
-            border-bottom: 1px solid #ecf0f1;
-            transition: background-color 0.3s ease;
+        .job-role {
+            font-weight: 700;
+            color: #1e3c72;
+            margin-bottom: 10px;
+            font-size: 1.1rem;
         }
         
-        tr:hover td {
-            background-color: #f0f8ff;
+        .job-desc {
+            margin-left: 15px;
         }
         
-        tr:last-child td {
+        .job-desc li {
+            margin-bottom: 8px;
+        }
+        
+        .personal-details p {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .personal-details i {
+            width: 25px;
+            color: #2a5298;
+            margin-right: 10px;
+        }
+        
+        .skills-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+        
+        .skills-table td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #e1f0ff;
+        }
+        
+        .skills-table tr:last-child td {
             border-bottom: none;
         }
         
-        .skills-section {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-            gap: 20px;
+        .skills-table tr:nth-child(even) {
+            background-color: #f0f8ff;
         }
         
-        .skill-category {
-            background-color: white;
-            padding: 25px 20px;
-            border-radius: 8px;
-            border-left: 4px solid #3498db;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .skill-category:before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 3px;
-            background: linear-gradient(90deg, #3498db, #2ecc71);
-        }
-        
-        .skill-category:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 10px 25px rgba(52, 152, 219, 0.15);
-        }
-        
-        .skill-category h4 {
-            color: #1c6ea4;
-            margin-bottom: 15px;
-            font-size: 1.3rem;
-        }
-        
-        .skill-item {
-            margin-bottom: 10px;
-            padding-left: 10px;
-            position: relative;
-            color: #555;
-        }
-        
-        .skill-item:before {
-            content: "▸";
-            color: #3498db;
-            font-weight: bold;
-            position: absolute;
-            left: 0;
-        }
-        
-        .hobbies {
+        .language-item {
             display: flex;
-            flex-wrap: wrap;
-            gap: 15px;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px dashed #d1e3ff;
         }
         
-        .hobby {
-            background: linear-gradient(to right, #3498db, #2980b9);
-            color: white;
-            padding: 12px 25px;
-            border-radius: 30px;
-            font-size: 0.9rem;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 10px rgba(52, 152, 219, 0.3);
+        .language-item:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
         }
         
-        .hobby:hover {
-            background: linear-gradient(to right, #2980b9, #1c6ea4);
-            transform: translateY(-5px) scale(1.05);
-            box-shadow: 0 6px 15px rgba(52, 152, 219, 0.4);
+        .interest-meter {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
         }
         
-        footer {
-            background: linear-gradient(135deg, #1c6ea4 0%, #2c3e50 100%);
-            color: white;
+        .interest-label {
+            width: 120px;
+            font-weight: 600;
+            color: #1e3c72;
+        }
+        
+        .meter-bar {
+            flex-grow: 1;
+            height: 10px;
+            background-color: #e1f0ff;
+            border-radius: 5px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .meter-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #1e3c72, #2a5298);
+            border-radius: 5px;
+            width: 0;
+            animation: fillBar 1.5s ease-out forwards;
+        }
+        
+        .meter-value {
+            margin-left: 15px;
+            font-weight: 700;
+            color: #1e3c72;
+            min-width: 40px;
+        }
+        
+        @keyframes fillBar {
+            from { width: 0; }
+        }
+        
+        .footer {
             text-align: center;
             padding: 20px;
+            background-color: #f9fbff;
+            color: #666;
             font-size: 0.9rem;
-            position: relative;
+            border-top: 1px solid #e1f0ff;
         }
         
-        footer:before {
-            content: "";
-            position: absolute;
+        .popup-overlay {
+            position: fixed;
             top: 0;
             left: 0;
             right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, #2ecc71, #3498db, #9b59b6);
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.7);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            animation: fadeIn 0.5s ease;
         }
         
-        .photo-upload {
-            margin-top: 20px;
+        .popup-content {
+            background-color: white;
+            padding: 40px;
+            border-radius: 15px;
+            max-width: 500px;
+            width: 90%;
             text-align: center;
-            opacity: 0;
-            animation: fadeIn 0.8s 0.6s ease-out forwards;
+            animation: popUp 0.5s ease-out;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            position: relative;
         }
         
-        .photo-upload input {
-            display: none;
+        @keyframes popUp {
+            0% { transform: scale(0.5); opacity: 0; }
+            100% { transform: scale(1); opacity: 1; }
         }
         
-        .photo-upload label {
-            background: linear-gradient(to right, #2ecc71, #3498db);
+        .popup-content h2 {
+            color: #1e3c72;
+            margin-bottom: 20px;
+        }
+        
+        .popup-content p {
+            margin-bottom: 25px;
+            color: #555;
+        }
+        
+        .close-btn {
+            background-color: #2a5298;
             color: white;
-            padding: 10px 20px;
-            border-radius: 30px;
-            cursor: pointer;
-            display: inline-block;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 10px rgba(52, 152, 219, 0.3);
-            font-weight: 500;
-        }
-        
-        .photo-upload label:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 6px 15px rgba(52, 152, 219, 0.4);
-            background: linear-gradient(to right, #27ae60, #2980b9);
-        }
-        
-        hr {
             border: none;
-            height: 1px;
-            background: linear-gradient(to right, transparent, #3498db, transparent);
-            margin: 30px 0;
+            padding: 12px 30px;
+            border-radius: 30px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
         }
         
-        .floating-element {
+        .close-btn:hover {
+            background-color: #1e3c72;
+            transform: translateY(-3px);
+        }
+        
+        .watermark {
             position: absolute;
-            background-color: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
-            z-index: -1;
-            animation: float 6s ease-in-out infinite;
-        }
-        
-        @keyframes float {
-            0%, 100% { transform: translateY(0) rotate(0deg); }
-            50% { transform: translateY(-20px) rotate(180deg); }
+            bottom: 20px;
+            right: 20px;
+            color: rgba(30, 60, 114, 0.1);
+            font-size: 1.5rem;
+            font-weight: bold;
+            pointer-events: none;
         }
         
         @media (max-width: 768px) {
+            .content {
+                grid-template-columns: 1fr;
+                padding: 25px;
+            }
+            
+            .header {
+                padding: 30px 25px 20px;
+            }
+            
             .profile-section {
                 flex-direction: column;
                 text-align: center;
-            }
-            
-            .contact-info {
-                grid-template-columns: 1fr;
             }
             
             .social-links {
                 justify-content: center;
             }
             
-            .skills-section {
-                grid-template-columns: 1fr;
+            .profile-info h1 {
+                font-size: 2rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            body {
+                padding: 10px;
+            }
+            
+            .section {
+                padding: 20px;
+            }
+            
+            .profile-photo {
+                width: 150px;
+                height: 150px;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Animated background elements -->
-    <div class="bg-decoration bg-1"></div>
-    <div class="bg-decoration bg-2"></div>
+    <!-- Pop-up Welcome -->
+    <div id="welcomePopup" class="popup-overlay">
+        <div class="popup-content">
+            <h2>Selamat Datang di CV Cahaya Dewi</h2>
+            <p>CV ini menampilkan pengalaman kerja, pendidikan, dan keterampilan Cahaya Dewi. Silakan eksplorasi informasi yang tersedia.</p>
+            <button class="close-btn" onclick="closePopup()">Mulai Jelajahi</button>
+        </div>
+    </div>
     
-    <!-- Floating elements for visual appeal -->
-    <div class="floating-element" style="width: 50px; height: 50px; top: 10%; left: 5%;"></div>
-    <div class="floating-element" style="width: 30px; height: 30px; top: 20%; right: 10%; animation-delay: 2s;"></div>
-    <div class="floating-element" style="width: 40px; height: 40px; bottom: 30%; left: 15%; animation-delay: 4s;"></div>
-    
-    <div class="container">
-        <header>
+    <!-- CV Container -->
+    <div class="cv-container">
+        <div class="header">
             <div class="profile-section">
-                <div class="profile-photo" id="profilePhoto">
-                    <div class="photo-placeholder">
-                        <i class="fas fa-user-circle"></i>
-                        <p>Click to upload photo</p>
-                    </div>
-                    <img id="profileImage" src="" alt="Profile Photo" style="display: none;">
-                </div>
+                <!-- Foto Profil -->
+                <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Foto Profil Cahaya Dewi" class="profile-photo">
+                
                 <div class="profile-info">
-                    <h1>MOHAMMAD YAHYA SHIHABUDDIN</h1>
-                    <h2>UX/UI DESIGNER</h2>
+                    <h1>Cahaya Dewi</h1>
+                    <p>Saya adalah seorang professor muda yang berdedikasi dengan pengetahuan lebih dari 3 tahun sebagai pranawas di berbagai restoran. Mungkin kemampuan komunikasi yang baik, dapat bekerja dengan cepat dan efisien serta selalu berkomitmen untuk memberikan pelayanan terbaik kepada petugas.</p>
                     
-                    <div class="contact-info">
-                        <p><strong>DOB:</strong> 30/08/2009</p>
-                        <p><strong>Address:</strong> SUGIO, LAMONGAN, JAWA TIMUR</p>
-                        <p><strong>Phone:</strong> 085604749745</p>
-                        <p><strong>Email:</strong> mohamadyahyasihabuddin@gmail.com.com</p>
-                        <p><strong>Website:</strong> yahyacoding.com</p>
-                    </div>
-                    
+                    <!-- Social Media Links -->
                     <div class="social-links">
-                        <a href="https://wa.me/085604749745" target="_blank" title="WhatsApp">
+                        <a href="https://wa.me/6281234567890" target="_blank" title="WhatsApp">
                             <i class="fab fa-whatsapp"></i>
                         </a>
-                        <a href="https://instagram.com/mhmdyhyas_" target="_blank" title="Instagram">
+                        <a href="https://instagram.com/cahayadewi" target="_blank" title="Instagram">
                             <i class="fab fa-instagram"></i>
                         </a>
-                        <a href="https://facebook.com/mohamad yahyasihabuddin" target="_blank" title="Facebook">
+                        <a href="https://facebook.com/cahayadewi" target="_blank" title="Facebook">
                             <i class="fab fa-facebook-f"></i>
                         </a>
-                        <a href="https://linkedin.com/in/yahyacoding" target="_blank" title="LinkedIn">
-                            <i class="fab fa-linkedin-in"></i>
+                        <a href="mailto:cahaya.dewi@email.com" title="Email">
+                            <i class="far fa-envelope"></i>
                         </a>
                     </div>
                 </div>
             </div>
-            
-            <div class="photo-upload">
-                <input type="file" id="photoInput" accept="image/*">
-                <label for="photoInput"><i class="fas fa-camera"></i> Change Profile Photo</label>
+        </div>
+        
+        <div class="content">
+            <div class="left-column">
+                <!-- Pengalaman Kerja -->
+                <div class="section">
+                    <h2>PENGALAMAN KERJA</h2>
+                    
+                    <div class="job-item">
+                        <div class="job-date">Januari 2022 - Agustus 2023</div>
+                        <div class="job-role">Pelayan, Restoran Ayam Penyet Borcelie</div>
+                        <ul class="job-desc">
+                            <li>Melayani pelanggan dengan ramah dan cepat.</li>
+                            <li>Menyiapkan makanan dan minuman sesuai standar restoran.</li>
+                            <li>Melakukan pengelolaan rutin kebersihan dan keselamatan kerja.</li>
+                            <li>Bekerjasama dengan tim dapur untuk memastikan kelancaran pelayanan.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="job-item">
+                        <div class="job-date">Juni 2020 - Desember 2021</div>
+                        <div class="job-role">Pelayan, Resto Korea Laranja, Irie...</div>
+                        <ul class="job-desc">
+                            <li>Mengambil pesanan pelanggan dan memastikan pesanan disajikan dengan tepat.</li>
+                            <li>Menangani komplain pelanggan dengan profesional.</li>
+                            <li>Membantu tim lain dalam persiapan dan pemberian pelayanan terbaik.</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Detail Data Pribadi -->
+                <div class="section">
+                    <h2>DETAIL DATA PRIBADI</h2>
+                    <div class="personal-details">
+                        <p><i class="fas fa-map-marker-alt"></i> Tempat Tanggal Lahir: Rimbario, 12 Agustus 2005</p>
+                        <p><i class="fas fa-flag"></i> Kebangsaan: Indonesia</p>
+                        <p><i class="fas fa-heart"></i> Status: Belum Menikah</p>
+                    </div>
+                </div>
+                
+                <!-- Bahasa -->
+                <div class="section">
+                    <h2>BAHASA</h2>
+                    <div class="language-item">
+                        <span>Bahasa Indonesia</span>
+                        <span>Fasih</span>
+                    </div>
+                    <div class="language-item">
+                        <span>Bahasa Inggris</span>
+                        <span>Menengah</span>
+                    </div>
+                </div>
             </div>
-        </header>
-        
-        <main>
-            <section class="about-me">
-                <h3>ABOUT ME</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Non vel, sint nisi possimus sunt veritatis totam velit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Non vel, sint nisi possimus sunt veritatis.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-            </section>
             
-            <hr>
-            
-            <section class="education">
-                <h3>EDUCATION</h3>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Year</th>
-                            <th>Institution</th>
-                            <th>Degree</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>2015-2017</td>
-                            <td>University of Design</td>
-                            <td>Master in UX Design</td>
-                        </tr>
-                        <tr>
-                            <td>2011-2015</td>
-                            <td>College of Visual Arts</td>
-                            <td>Bachelor in Graphic Design</td>
-                        </tr>
-                        <tr>
-                            <td>2017</td>
-                            <td>SENIOR UX DESIGNER at Yellow Inc.</td>
-                            <td>Advanced Certification</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </section>
-            
-            <section class="experience">
-                <h3>EXPERIENCE</h3>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Year</th>
-                            <th>Position</th>
-                            <th>Company</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>2020-Present</td>
-                            <td>Lead UX/UI Designer</td>
-                            <td>Creative Solutions Inc.</td>
-                        </tr>
-                        <tr>
-                            <td>2017-2020</td>
-                            <td>SENIOR UX DESIGNER</td>
-                            <td>Yellow Inc.</td>
-                        </tr>
-                        <tr>
-                            <td>2015-2017</td>
-                            <td>Junior UI Designer</td>
-                            <td>Design Studio Ltd.</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </section>
-            
-            <section class="skills">
-                <h3>SKILLS</h3>
-                <div class="skills-section">
-                    <div class="skill-category">
-                        <h4>DESIGN</h4>
-                        <div class="skill-item">ILLUSTRATOR</div>
-                        <div class="skill-item">PHOTOSHOP</div>
-                        <div class="skill-item">INDESIGN</div>
-                        <div class="skill-item">FIGMA</div>
-                    </div>
-                    
-                    <div class="skill-category">
-                        <h4>DEVELOPMENT</h4>
-                        <div class="skill-item">HTML/CSS</div>
-                        <div class="skill-item">JAVASCRIPT</div>
-                        <div class="skill-item">REACT</div>
-                        <div class="skill-item">WORDPRESS</div>
-                    </div>
-                    
-                    <div class="skill-category">
-                        <h4>OFFICE</h4>
-                        <div class="skill-item">MS WORD</div>
-                        <div class="skill-item">MS EXCEL</div>
-                        <div class="skill-item">POWERPOINT</div>
-                        <div class="skill-item">SLACK</div>
-                    </div>
-                    
-                    <div class="skill-category">
-                        <h4>PHOTOGRAPHY</h4>
-                        <div class="skill-item">PHOTOSHOP</div>
-                        <div class="skill-item">LIGHTROOM</div>
-                        <div class="skill-item">CAMERA TECHNIQUES</div>
-                        <div class="skill-item">PHOTO EDITING</div>
+            <div class="right-column">
+                <!-- Pengalaman Organisasi -->
+                <div class="section">
+                    <h2>PENGALAMAN ORGANISASI</h2>
+                    <div class="job-item">
+                        <div class="job-role">Sekretaris OSIS SMK Negeri 5 Kab. Rimbario</div>
+                        <ul class="job-desc">
+                            <li>Mengkoordinasikan kegiatan antara OSIS dengan pihak sekolah dan pihak eksternal.</li>
+                            <li>Membina hubungan baik dengan seluruh anggota OSIS serta mewakili organisasi dalam berbagai acara.</li>
+                        </ul>
                     </div>
                 </div>
-            </section>
-            
-            <section class="hobbies-section">
-                <h3>HOBBIES & INTERESTS</h3>
-                <div class="hobbies">
-                    <div class="hobby">TRAVEL</div>
-                    <div class="hobby">CYCLING</div>
-                    <div class="hobby">KAYAK</div>
-                    <div class="hobby">MOVIES</div>
-                    <div class="hobby">PHOTOGRAPHY</div>
-                    <div class="hobby">READING</div>
+                
+                <!-- Keterampilan -->
+                <div class="section">
+                    <h2>KETERAMPILAN</h2>
+                    <table class="skills-table">
+                        <tr>
+                            <td><strong>Komunikasi</strong></td>
+                            <td>Pelayanan Kerja</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Kepemimpinan</strong></td>
+                            <td>Cekatan</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Komunikasi Interpersonal</strong></td>
+                            <td>Cekatan</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Kerjasama Tim</strong></td>
+                            <td>Baik</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Pelayanan Pelanggan</strong></td>
+                            <td>Unggul</td>
+                        </tr>
+                    </table>
                 </div>
-            </section>
-        </main>
+                
+                <!-- Minat -->
+                <div class="section">
+                    <h2>MINAT & KEMAMPUAN</h2>
+                    <div class="interest-meter">
+                        <div class="interest-label">Interesse</div>
+                        <div class="meter-bar">
+                            <div class="meter-fill" style="width: 100%;"></div>
+                        </div>
+                        <div class="meter-value">10/10</div>
+                    </div>
+                    
+                    <div class="interest-meter">
+                        <div class="interest-label">Ingin Tahu</div>
+                        <div class="meter-bar">
+                            <div class="meter-fill" style="width: 80%;"></div>
+                        </div>
+                        <div class="meter-value">8/10</div>
+                    </div>
+                </div>
+            </div>
+        </div>
         
-        <footer>
-            <p>&copy; 2023 Johnson Smith. All rights reserved.</p>
-            <p>Contact: johnson@psdcreation.com | Phone: 01234-456-0000</p>
-        </footer>
+        <div class="footer">
+            <p>CV Cahaya Dewi &copy; 2023 | Terakhir diperbarui: Oktober 2023</p>
+        </div>
+        
+        <div class="watermark">CV PORTFOLIO</div>
     </div>
 
     <script>
-        // Function to handle profile photo upload
-        document.getElementById('photoInput').addEventListener('change', function(event) {
-            const file = event.target.files[0];
-            if (file) {
-                const reader = new FileReader();
-                
-                reader.onload = function(e) {
-                    const profileImage = document.getElementById('profileImage');
-                    const photoPlaceholder = document.querySelector('.photo-placeholder');
-                    
-                    // Create a fade out effect
-                    photoPlaceholder.style.opacity = '0.5';
-                    photoPlaceholder.style.transition = 'opacity 0.3s';
-                    
-                    setTimeout(() => {
-                        profileImage.src = e.target.result;
-                        profileImage.style.display = 'block';
-                        photoPlaceholder.style.display = 'none';
-                        
-                        // Add animation to the new image
-                        profileImage.style.animation = 'fadeIn 0.5s ease-out';
-                    }, 300);
-                };
-                
-                reader.readAsDataURL(file);
-            }
-        });
+        // Fungsi untuk menutup pop-up
+        function closePopup() {
+            document.getElementById('welcomePopup').style.display = 'none';
+        }
         
-        // Allow clicking on profile photo to upload
-        document.getElementById('profilePhoto').addEventListener('click', function() {
-            document.getElementById('photoInput').click();
-        });
+        // Menutup pop-up secara otomatis setelah 5 detik
+        setTimeout(closePopup, 5000);
         
-        // Add animation to elements on scroll
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-        
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.animationPlayState = 'running';
-                }
-            });
-        }, observerOptions);
-        
-        // Observe all sections for animation
-        document.querySelectorAll('section').forEach(section => {
-            observer.observe(section);
-        });
-        
-        // Social media links with confirmation
-        const socialLinks = document.querySelectorAll('.social-links a');
-        socialLinks.forEach(link => {
-            link.addEventListener('click', function(e) {
-                const platform = this.getAttribute('title');
-                if (!confirm(`You are being redirected to ${platform}. Continue?`)) {
-                    e.preventDefault();
-                } else {
-                    // Add a small animation before redirecting
-                    this.style.transform = 'scale(0.8)';
-                    setTimeout(() => {
-                        this.style.transform = '';
-                    }, 300);
-                }
-            });
-        });
-        
-        // Add hover effect to table rows
-        const tableRows = document.querySelectorAll('tbody tr');
-        tableRows.forEach(row => {
-            row.addEventListener('mouseenter', function() {
-                this.style.backgroundColor = '#f0f8ff';
-                this.style.transition = 'background-color 0.3s ease';
-            });
+        // Animasi untuk meter bar saat scroll
+        document.addEventListener('DOMContentLoaded', function() {
+            const meterFills = document.querySelectorAll('.meter-fill');
             
-            row.addEventListener('mouseleave', function() {
-                this.style.backgroundColor = '';
-            });
-        });
-        
-        // Animate elements on page load
-        window.addEventListener('load', function() {
-            // Trigger floating animations
-            const floatingElements = document.querySelectorAll('.floating-element');
-            floatingElements.forEach((el, index) => {
-                el.style.animationDelay = `${index * 2}s`;
-            });
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        // Trigger animation
+                        entry.target.style.animationPlayState = 'running';
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.5 });
             
-            // Add a subtle bounce to the profile photo
-            setTimeout(() => {
-                const profilePhoto = document.getElementById('profilePhoto');
-                profilePhoto.style.transform = 'scale(1.05)';
-                setTimeout(() => {
-                    profilePhoto.style.transform = 'scale(1)';
-                }, 300);
-            }, 1000);
+            meterFills.forEach(fill => {
+                fill.style.animationPlayState = 'paused';
+                observer.observe(fill);
+            });
         });
     </script>
 </body>
-</html>
+    </html>
